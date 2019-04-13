@@ -107,7 +107,7 @@ function symlink_clang_format() {
 function ensure_path_environment() {
   ENV_PATH='''PATH=$PATH:/usr/local/bin'''
 
-  if grep -q $ENV_PATH "~/.bash_profile"; then
+  if grep -q $ENV_PATH ~/.bash_profile; then
 
     echo "homebrew 环境变量路径存在"
   else
