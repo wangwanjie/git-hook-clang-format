@@ -41,6 +41,7 @@ function ensure_pre_commit_file_is_executable() {
 }
 
 PRE_COMMIT_CONTENT='''
+export PATH=/usr/local/bin:$PATH
 STAGE_FILES=$(git diff --cached --name-only --diff-filter=ACM -- '*.h' '*.m' '*.c')
 if test ${#STAGE_FILES} -gt 0
 then
@@ -105,7 +106,7 @@ function symlink_clang_format() {
 }
 
 function ensure_path_environment() {
-  ENV_PATH='''PATH=$PATH:/usr/local/bin'''
+  ENV_PATH='''PATH=/usr/local/bin:$PATH'''
 
   if grep -q $ENV_PATH ~/.bash_profile; then
 
