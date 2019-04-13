@@ -99,9 +99,22 @@ function ensure_git_ignores_clang_format_file() {
 }
 
 function symlink_clang_format() {
-  $(ln -sf "$DIR/.clang-format" ".clang-format")
+   if [ ! -f ".clang-format" ]; then
+    $(ln -sf "$DIR/.clang-format" ".clang-format")
+  fi
 }
 
+function ensure_path_environment() {
+  ENV_PATH='''PATH=$PATH:/usr/local/bin'''
 
-ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed && ensure_git_ignores_clang_format_file && symlink_clang_format
+  if grep -q $ENV_PATH "~/.bash_profile"; then
 
+    echo "homebrew 环境变量路径存在"
+  else
+    echo "homebrew 环境变量路径不存在，将添加"
+    echo "$ENV_PATH" >> ~/.bash_profile
+    source ~/.bash_profile
+  fi
+}
+
+ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed && ensure_git_ignores_clang_format_file && symlink_clang_format && ensure_path_environment
