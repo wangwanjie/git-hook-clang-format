@@ -1,6 +1,10 @@
 # 说明
 自动化完成 git 项目的 clang-format 的 git-hook 部署
 
+# 先看效果
+
+![效果图](https://github.com/wangwanjie/git-hook-clang-format/blob/master/snapshots/example.gif)
+
 # 安装方式
 ## 常规安装
 clone 本项目到本地，终端命令行进入你的项目根目录，目录内执行 `setup-repo.sh` 脚本，即：
