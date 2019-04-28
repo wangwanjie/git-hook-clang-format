@@ -3,7 +3,7 @@
 
 # 先看效果
 
-![效果图](https://github.com/wangwanjie/git-hook-clang-format/blob/master/snapshots/example.gif)
+![效果图](https://raw.githubusercontent.com/wangwanjie/git-hook-clang-format/master/snapshots/example.gif)
 
 # 安装方式
 ## 常规安装
